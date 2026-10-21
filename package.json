@@ -1,0 +1,39 @@
+{
+  "name": "usool-alhasib",
+  "productName": "AssetsApp",
+  "version": "1.0.0",
+  "description": "أصول الحاسب - إدارة أجهزة ومستلزمات الحاسب الآلي",
+  "main": "main.js",
+  "author": "IT",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.usool.alhasib",
+    "productName": "AssetsApp",
+    "files": ["main.js", "app/**/*", "build/icon.png"],
+    "directories": { "output": "dist" },
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "shortcutName": "أصول الحاسب",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false
+    },
+    "artifactName": "Usool-AlHasib-${version}-${os}.${ext}"
+  }
+}
